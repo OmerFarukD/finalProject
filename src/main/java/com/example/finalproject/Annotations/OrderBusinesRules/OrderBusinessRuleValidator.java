@@ -20,4 +20,5 @@ public class OrderBusinessRuleValidator implements ConstraintValidator<OrderBusi
         Product product=this.productDal.getById(value.getProductId());
         return product.getUnitsInStock() >= value.getPiece();
     }
+
 }

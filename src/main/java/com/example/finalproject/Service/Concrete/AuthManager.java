@@ -23,7 +23,7 @@ public class AuthManager implements IAuthService {
     public User signInAndReturnJWT(UserForLoginRequestDto userForLoginRequestDto)
     {
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(userForLoginRequestDto.getUserName(), userForLoginRequestDto.getPassword())
+                new UsernamePasswordAuthenticationToken(userForLoginRequestDto.getUsername(), userForLoginRequestDto.getPassword())
         );
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
         String jwt = jwtProvider.generateToken(userPrincipal);

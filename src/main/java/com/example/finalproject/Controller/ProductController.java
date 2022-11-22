@@ -25,7 +25,7 @@ public class ProductController {
     public ResponseEntity<?> add(@Valid @RequestBody ProductAddedRequestDto requestDto){
         var result=this.productService.add(requestDto);
         if (!result.getSuccess()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
         return ResponseEntity.status(HttpStatus.CREATED).body(result);
     }
@@ -33,7 +33,7 @@ public class ProductController {
     public ResponseEntity<?> getAll(){
         var result=this.productService.getAll();
         if (!result.getSuccess()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
@@ -41,7 +41,7 @@ public class ProductController {
     public ResponseEntity<?> delete(@RequestBody ProductRemovedRequestDto removedRequestDto){
         var result=this.productService.delete(removedRequestDto);
         if (!result.getSuccess()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
@@ -49,7 +49,7 @@ public class ProductController {
     public ResponseEntity<?> update(@Valid @RequestBody ProductUpdatedRequestDto productUpdatedRequestDto){
         var result=this.productService.update(productUpdatedRequestDto);
         if (!result.getSuccess()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
@@ -59,7 +59,7 @@ public class ProductController {
     public ResponseEntity<?> getAllProductByOrderId(@RequestParam  int id){
         var result=this.productService.getAllProductsByOrderId(id);
         if (!result.getSuccess()){
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result.getMessage());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
         return ResponseEntity.status(HttpStatus.OK).body(result);
     }
